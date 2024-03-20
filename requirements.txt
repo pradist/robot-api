@@ -1,0 +1,8 @@
+robotframework >= 5.0.1
+robotframework-requests >= 0.9.4
+robotframework-jsonlibrary >= 0.5
+# robotframework-databaselibrary  >= 1.2.4
+# pymssql >= 2.2.7
+# PyYAML >= 5.4.1
+robotframework-sshlibrary >= 3.8.0
+# xml-python >= 0.4.3
