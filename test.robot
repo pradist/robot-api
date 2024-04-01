@@ -18,6 +18,12 @@ Get User by ID - Verify Status Code 200 and Success
 Create User - Verify Status Code 201 and Success
     Create Session    JsonPlaceholder    ${BASE_URL}    disable_warnings=1
     ${data}    Create Dictionary    firstname=John    lastname=johndoe
+    ${resp}    POST On Session    JsonPlaceholder    url=/users    json=${data}
+    ${resp_data}    Set Variable    ${resp.json()}
+    &{result}    Convert To Dictionary    ${resp_data}
+    Should Be True    ${resp.ok}    Response should be successful
+    Should Be Equal As Strings    ${resp.status_code}    201    Status code should be 201
+    Run Keyword And Continue On Failure    Should Be Equal As Strings    ${result.firstname}    John    First name should be John
 
 Update User - Verify Status Code 200 and Success
     Create Session    JsonPlaceholder    ${BASE_URL}    disable_warnings=1
